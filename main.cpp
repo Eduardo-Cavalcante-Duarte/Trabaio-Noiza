@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Ex: typedefs, funções como cria_ArvBin(), insere_ArvBin(), etc.
 int main() {
   setlocale(LC_ALL, "");
 
@@ -16,13 +17,23 @@ int main() {
   printf("Pesquisa em Ordem\n");
   emOrdem_ArvBin(raiz);
 
-  printf("\nPesquisa em Pre Ordem\n");
+  printf("\nPesquisa em Pré Ordem\n");
   preOrdem_ArvBin(raiz);
 
-  printf("\nPesquisa em Pos Ordem\n");
+  printf("\nPesquisa em Pós Ordem\n");
   posOrdem_ArvBin(raiz);
 
-  printf("\nAltura da arvore = %d\n", altura_ArvBin(raiz));
+  printf("\nAltura da árvore = %d\n", altura_ArvBin(raiz));
+
+  printf("\nNó de maior valor = %d\n", maior_ArvBin(raiz));
+
+  printf("\nNó de menor valor = %d\n", menor_ArvBin(raiz));
+
+  printf("\nQuantidade de folhas = %d\n", folhas_ArvBin(raiz));
+
+  libera_ArvBin(raiz);
+
+  return 0;
 
   libera_ArvBin(raiz);
 

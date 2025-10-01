@@ -179,20 +179,22 @@ void preOrdem_ArvBin(ArvBin *raiz) {
   if (raiz == NULL)
     return;
 
-  printf("Andre");
-
-  printf("%d", (*raiz)->info);
-  preOrdem_ArvBin(&((*raiz)->esq));
-  preOrdem_ArvBin(&((*raiz)->dir));
+  if (*raiz != NULL) {
+    printf("%d\n", (*raiz)->info);
+    preOrdem_ArvBin(&((*raiz)->esq));
+    preOrdem_ArvBin(&((*raiz)->dir));
+  }
 }
 
 void posOrdem_ArvBin(ArvBin *raiz) {
   if (raiz == NULL)
     return;
 
-  posOrdem_ArvBin(&((*raiz)->esq)); // Visita subárvore esquerda
-  posOrdem_ArvBin(&((*raiz)->dir)); // Visita subárvore direita
-  printf("%d", (*raiz)->info);
+  if (*raiz != NULL) {
+    posOrdem_ArvBin(&((*raiz)->esq)); // Visita subárvore esquerda
+    posOrdem_ArvBin(&((*raiz)->dir)); // Visita subárvore direita
+    printf("%d\n", (*raiz)->info);
+  }
 }
 
 int menor_ArvBin(ArvBin *raiz) { // retorna o menor valor ou zero
@@ -219,14 +221,14 @@ int maior_ArvBin(ArvBin *raiz) { // retorna o maior valor ou zero
 }
 
 int folhas_ArvBin(ArvBin *raiz) { // conta a quantidade de folhas da árvore
-  if (raiz == NULL)
+  if (raiz == NULL || *raiz == NULL)
     return 0;
 
   if ((*raiz)->esq == NULL && (*raiz)->dir == NULL)
     return 1;
 
-  int folhas_esq = folhas_ArvBin(&((*raiz)->esq));
-  int folhas_dir = folhas_ArvBin(&((*raiz)->dir));
+  int folhas_esq = folhas_ArvBin(&(*raiz)->esq);
+  int folhas_dir = folhas_ArvBin(&(*raiz)->dir);
 
   return folhas_esq + folhas_dir;
 }
